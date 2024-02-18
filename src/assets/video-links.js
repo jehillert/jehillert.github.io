@@ -5,23 +5,28 @@ const videoLinks = [
   },
   {
     fileName: 'Actions Column',
-    url: 'https://youtube.com/shorts/RbfQ8Ci1XqI?feature=share',
+    url: 'vid_actions_column.mp4',
+    // url: 'https://youtube.com/shorts/RbfQ8Ci1XqI?feature=share',
   },
   {
     fileName: 'Adaptive Actions Overlay',
-    url: 'https://youtube.com/shorts/Jx-1rkimSIA?feature=share',
+    url: 'vid_adaptive_actions_overlay.mp4',
+    // url: 'https://youtube.com/shorts/Jx-1rkimSIA?feature=share',
   },
   {
     fileName: 'Convert Docs to HTML',
-    url: 'https://youtube.com/shorts/kchach5qw4E',
+    url: 'vid_convert_to_html.mp4',
+    // url: 'https://youtube.com/shorts/kchach5qw4E',
   },
   {
     fileName: 'Convert Webpage to Document',
-    url: 'https://youtube.com/shorts/8VT2nJDQ--M?feature=share',
+    url: 'vid_convert_webpage_to_document.mp4',
+    // url: 'https://youtube.com/shorts/8VT2nJDQ--M?feature=share',
   },
   {
     fileName: 'Customizable Toolbar',
-    url: 'https://youtube.com/shorts/4EoZsHVlIx8?feature=share',
+    url: 'vid_customizable_toolbar.mp4',
+    // url: 'https://youtube.com/shorts/4EoZsHVlIx8?feature=share',
   },
   {
     fileName: 'Document Navigation via Sidebar & Scroll',
@@ -55,16 +60,12 @@ const videoLinks = [
 
 const videoPaths = [
   {
-    fileName: 'Annotation & Settings Drawers, Sharing Content to App',
+    fileName: 'Actions Column',
     url: 'vid_actions_column.mp4',
   },
   {
-    fileName: 'Actions Column',
-    url: 'vid_adaptive_actions_overlay.mp4',
-  },
-  {
     fileName: 'Adaptive Actions Overlay',
-    url: 'vid_annotation_settings_drawers_sharing_content_to_app.mp4',
+    url: 'vid_adaptive_actions_overlay.mp4',
   },
   {
     fileName: 'Convert Docs to HTML',
