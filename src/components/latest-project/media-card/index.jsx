@@ -21,9 +21,7 @@ const MediaCard = ({ description, url }) => {
                   <h2 className="font-semibold text-lg tracking-wide text-center opacity-60 mb-2">
                     {description}
                   </h2>
-                  <Player ref={ref} width={'33%'} fluid={false}>
-                    <source src={url} />
-                  </Player>
+                  <Player src={url} ref={ref} width={'33%'} fluid={false} />
                 </PlayerViewDiv>
               </div>
             </div>
