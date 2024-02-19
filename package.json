@@ -41,8 +41,8 @@
     "@splidejs/react-splide": "^0.7.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.1.8",
-    "video-react": "^0.16.0"
+    "react-player": "^2.14.1",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@arifszn/blog-js": "^2.0.5",
