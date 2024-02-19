@@ -10,7 +10,7 @@ function generateSlides(
   length = 10,
   sig = 0,
 ): Array<{ src: string; alt: string }> {
-  return Array.from({ length }).map((value, index) => {
+  return Array.from({ length }).map((_, index) => {
     index = sig || index;
 
     return {
