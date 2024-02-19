@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import { skeleton } from '../../utils';
-import { GithubProject } from '../../interfaces/github-project';
 import MediaCard from './media-card';
 import customizable_toolbar from '../../assets/customizable_toolbar.mp4';
 import vid_actions_column from '../../assets/vid_actions_column.mp4';
