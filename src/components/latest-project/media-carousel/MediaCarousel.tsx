@@ -1,3 +1,4 @@
+// @ts-ignore
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import { generateSlides } from './utils';
 

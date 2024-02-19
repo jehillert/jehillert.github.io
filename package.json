@@ -58,6 +58,17 @@
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-pwa": "^0.19.0"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/js/react-splide.cjs.js",
+      "import": "./dist/js/react-splide.esm.js",
+      "default": "./dist/js/react-splide.esm.js"
+    },
+    "./css": "./dist/css/splide.min.css",
+    "./css/core": "./dist/css/splide-core.min.css",
+    "./css/*": "./dist/css/themes/splide-*.min.css"
+  },
   "keywords": [
     "git-profile",
     "gitprofile",
