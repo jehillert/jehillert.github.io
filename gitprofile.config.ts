@@ -41,7 +41,7 @@ const CONFIG = {
     },
   },
   seo: {
-    title: 'Portfolio of Ariful Alam',
+    title: 'Portfolio of John Hillert',
     description: '',
     imageURL: '',
   },

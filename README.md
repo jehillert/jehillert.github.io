@@ -56,19 +56,19 @@
 
 **Features:**
 
-✓ [Easy to Setup](#-installation--setup)  
-✓ [33 Themes](#themes)  
-✓ [Google Analytics](#google-analytics)  
-✓ [Hotjar](#hotjar)  
-✓ [SEO](#seo)  
-✓ [PWA](#pwa)  
-✓ [Avatar and Bio](#avatar-and-bio)  
-✓ [Social Links](#social-links)  
-✓ [Skill Section](#skills)  
-✓ [Experience Section](#experience)  
-✓ [Certification Section](#certifications)  
-✓ [Education Section](#education)  
-✓ [Projects Section](#projects)  
+✓ [Easy to Setup](#-installation--setup)
+✓ [33 Themes](#themes)
+✓ [Google Analytics](#google-analytics)
+✓ [Hotjar](#hotjar)
+✓ [SEO](#seo)
+✓ [PWA](#pwa)
+✓ [Avatar and Bio](#avatar-and-bio)
+✓ [Social Links](#social-links)
+✓ [Skill Section](#skills)
+✓ [Experience Section](#experience)
+✓ [Certification Section](#certifications)
+✓ [Education Section](#education)
+✓ [Projects Section](#projects)
 ✓ [Blog Posts Section](#blog-posts)
 
 To view a live example, **[click here](https://arifszn.github.io/gitprofile)**.
@@ -202,7 +202,7 @@ const CONFIG = {
     },
   },
   seo: {
-    title: 'Portfolio of Ariful Alam',
+    title: 'Portfolio of John Hillert',
     description: '',
     imageURL: '',
   },
@@ -360,7 +360,7 @@ const CONFIG = {
   },
 
   // Optional Footer. Supports plain text or HTML.
-  footer: `Made with <a 
+  footer: `Made with <a
       class="text-primary" href="https://github.com/arifszn/gitprofile"
       target="_blank"
       rel="noreferrer"
@@ -454,7 +454,7 @@ You can customize the meta tags for SEO in `seo`.
 const CONFIG = {
   // ...
   seo: {
-    title: 'Portfolio of Ariful Alam',
+    title: 'Portfolio of John Hillert',
     description: '',
     imageURL: '',
   },
