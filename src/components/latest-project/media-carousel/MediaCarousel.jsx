@@ -1,6 +1,6 @@
 import React from 'react';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
-import { generateSlides } from '../utils';
+import { generateSlides } from './utils';
 
 const MediaCarousel = () => {
   const options = {
@@ -14,7 +14,6 @@ const MediaCarousel = () => {
 
   return (
     <div className="wrapper">
-      <h2 id="autoplay-example-heading">Autoplay</h2>
       <Splide
         options={options}
         aria-labelledby="autoplay-example-heading"
