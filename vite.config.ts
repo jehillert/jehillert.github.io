@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 import { VitePWA } from 'vite-plugin-pwa';
 import { createHtmlPlugin } from 'vite-plugin-html';
+import macrosPlugin from 'vite-plugin-babel-macros';
 import react from '@vitejs/plugin-react';
 import CONFIG from './gitprofile.config';
 
@@ -9,8 +10,21 @@ import CONFIG from './gitprofile.config';
 export default defineConfig({
   base: CONFIG.base || '/',
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [
+          [
+            'babel-plugin-styled-components',
+            {
+              displayName: true,
+              fileName: false,
+            },
+          ],
+        ],
+      },
+    }),
     svgr(),
+    macrosPlugin(),
     createHtmlPlugin({
       inject: {
         data: {

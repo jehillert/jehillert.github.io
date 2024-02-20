@@ -1,7 +1,5 @@
 import { Fragment } from 'react';
 import styled from 'styled-components';
-import { skeleton } from '../../utils';
-import MediaCard from '../media-card/MediaCard';
 import { MediaCarousel } from '../media-carousel/MediaCarousel';
 import vid_share_text from '../../assets/vid_share_text.mp4';
 import vid_share_image from '../../assets/vid_share_image.mp4';
@@ -13,22 +11,6 @@ import vid_sticky_header_footer from '../../assets/vid_sticky_header_footer.mp4'
 import vid_resizable_bottom_sheet from '../../assets/vid_resizable_bottom_sheet.mp4';
 import vid_adaptive_actions_overlay from '../../assets/vid_adaptive_actions_overlay.mp4';
 import vid_convert_webpage_to_document from '../../assets/vid_convert_webpage_to_document.mp4';
-
-const paths = [
-  { displayText: 'Customizable Toolbar', url: customizable_toolbar },
-  { displayText: 'Adaptive Overlay', url: vid_adaptive_actions_overlay },
-  { displayText: 'Action Column', url: vid_actions_column },
-  {
-    displayText: 'Document Conversion I',
-    url: vid_convert_webpage_to_document,
-  },
-  { displayText: 'Document Navigation', url: vid_document_navigation },
-  { displayText: 'Draggable Cardlist', url: vid_draggable_cardlist },
-  { displayText: 'Resizable Bottom Sheet', url: vid_resizable_bottom_sheet },
-  { displayText: 'Share Image', url: vid_share_image },
-  { displayText: 'Share Text', url: vid_share_text },
-  { displayText: 'Sticky Header/Footer', url: vid_sticky_header_footer },
-];
 
 const filePaths = [
   { alt: 'Customizable Toolbar', src: customizable_toolbar },
