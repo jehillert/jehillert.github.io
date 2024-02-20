@@ -26,7 +26,7 @@ import EducationCard from './education-card';
 import CertificationCard from './certification-card';
 import { GithubProject } from '../interfaces/github-project';
 import GithubProjectCard from './github-project-card';
-import LatestProject from './latest-project';
+import LatestProject from './latest-project/LatestProject';
 import ExternalProjectCard from './external-project-card';
 import BlogCard from './blog-card';
 import Footer from './footer';

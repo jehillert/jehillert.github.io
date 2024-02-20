@@ -32,7 +32,7 @@ label span {
 }
 
 .splide__slide {
-  background: #00000030;
+  background: transparent;
 }
 
 .splide__slide img {

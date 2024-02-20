@@ -1,20 +1,15 @@
-// gitprofile.config.ts
-
 const CONFIG = {
   github: {
-    username: 'jehillert', // Your GitHub org/user name. (This is the only required config)
+    username: 'jehillert',
   },
-  /**
-   * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/arifszn/arifszn.github.io, set base to '/'.
-   */
   base: '/',
   projects: {
     github: {
       display: true,
       header: 'Github Projects',
-      mode: 'automatic', // Mode can be: 'automatic' or 'manual'
+      mode: 'automatic', // 'automatic' | 'manual'
       automatic: {
-        sortBy: 'updated', // Sort projects by 'stars' or 'updated'
+        sortBy: 'updated', // 'stars' | 'updated'
         limit: 10, // How many projects to display.
         exclude: {
           forks: true, // Forked projects will not be displayed if set to true.
@@ -32,10 +27,9 @@ const CONFIG = {
       projects: [
         {
           title: 'Modicum Timelockr',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut.',
-          imageUrl: 'https://via.placeholder.com/250x250',
-          link: 'https://example.com',
+          description: `This is a mobile app built with React Native to control a Noke Smart Lock. The app uses redux, redux saga, and an Android native module to access the Nokē Mobile Library for Android and control the lock. Unlock codes are retrieved from Noke's ACaaS backend using the Nokē Core API. The app is a work in progress and the intended use cases for the lock have not yet been implemented.`,
+          imageUrl: './src/assets/timeLockr.svg',
+          link: 'https://github.com/jehillert/modicum-timelockr-app',
         },
       ],
     },
@@ -145,7 +139,7 @@ const CONFIG = {
   ],
   // Display articles from your medium or dev account. (Optional)
   blog: {
-    source: 'jehillert.medium.com', // medium | dev
+    source: 'medium', // medium | dev
     username: 'jehillert', // to hide blog section, keep it empty
     limit: 10, // How many posts to display. Max is 10.
   },
