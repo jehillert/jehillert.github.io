@@ -1,10 +1,10 @@
 import { Fragment } from 'react';
 import styled from 'styled-components';
 import { skeleton } from '../../utils';
-import MediaCard from './media-card/MediaCard';
+import MediaCard from '../media-card/MediaCard';
+import { MediaCarousel } from '../media-carousel/MediaCarousel';
 import vid_share_text from '../../assets/vid_share_text.mp4';
 import vid_share_image from '../../assets/vid_share_image.mp4';
-import { MediaCarousel } from './media-carousel/MediaCarousel';
 import vid_actions_column from '../../assets/vid_actions_column.mp4';
 import customizable_toolbar from '../../assets/customizable_toolbar.mp4';
 import vid_draggable_cardlist from '../../assets/vid_draggable_cardlist.mp4';
@@ -52,7 +52,6 @@ const CarouselContainer = styled.div`
   background-color: #00000079;
 `;
 const ProjectCardBody = styled.div``;
-const CardTitle = styled.h5``;
 
 const LatestProject = ({ loading }: { loading: boolean }) => {
   return (
@@ -62,17 +61,6 @@ const LatestProject = ({ loading }: { loading: boolean }) => {
           <div className="col-span-2">
             <div className="card compact bg-base-100 shadow bg-opacity-40">
               <ProjectCardBody className="card-body">
-                <div className="mx-3 flex items-center justify-between mb-2">
-                  <CardTitle className="card-title">
-                    {loading ? (
-                      skeleton({ widthCls: 'w-40', heightCls: 'h-8' })
-                    ) : (
-                      <span className="text-base-content opacity-70">
-                        G@ther, my latest project...
-                      </span>
-                    )}
-                  </CardTitle>
-                </div>
                 <CarouselContainer>
                   <div className="col-span-2">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -22,9 +22,15 @@ const CONFIG = {
       },
     },
     external: {
-      header: 'My Projects',
+      header: 'My Apps',
       // To hide the `External Projects` section, keep it empty.
       projects: [
+        {
+          title: 'G@ther',
+          description: '',
+          imageUrl: './src/assets/timeLockr.svg',
+          link: 'https://github.com/jehillert/modicum-timelockr-app',
+        },
         {
           title: 'Modicum Timelockr',
           description: `This is a mobile app built with React Native to control a Noke Smart Lock. The app uses redux, redux saga, and an Android native module to access the Nokē Mobile Library for Android and control the lock. Unlock codes are retrieved from Noke's ACaaS backend using the Nokē Core API. The app is a work in progress and the intended use cases for the lock have not yet been implemented.`,

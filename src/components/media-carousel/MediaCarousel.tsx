@@ -3,10 +3,10 @@ import { Options } from '@splidejs/splide';
 import { Video } from '@splidejs/splide-extension-video';
 // @ts-expect-error - dependency bug
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
-import { isDesktop } from '../../../utils/mediaUtils';
-import GatherOnPhoneSvg from '../../../assets/gather-on-phone-silhouette.svg?react';
+import { isDesktop } from '../../utils/mediaUtils';
+import GatherOnPhoneSvg from '../../assets/gather-on-phone-silhouette.svg?react';
 import '@splidejs/splide-extension-video/dist/css/splide-extension-video.min.css';
-import { useWindowDimensions } from '../../../hooks';
+import { useWindowDimensions } from '../../hooks';
 import styled from 'styled-components';
 
 type Props = {
@@ -59,7 +59,7 @@ const MediaCarousel = ({ data, loading }: Props) => {
           <div className="splide__slide__container">
             <GatherOnPhoneSvg height={playerHeight} />
           </div>
-          <div>Other contents</div>
+          {/* <div>Other contents</div> */}
         </SplideSlide>
       ))}
     </ul>
