@@ -72,7 +72,6 @@ const filePaths = [
 
 const CarouselContainer = styled.div<{ $height: number }>`
   height: ${({ $height }) => $height}px;
-  background-color: red;
 `;
 
 const ProjectsCard = ({
@@ -87,7 +86,7 @@ const ProjectsCard = ({
   googleAnalyticId?: string;
 }) => {
   const { height } = useWindowDimensions();
-  const $height = (isDesktop ? 0.75 : 1) * height;
+  const $height = (isDesktop ? 0.6 : 1) * height;
 
   const renderSkeleton = () => {
     const array = [];
@@ -106,7 +105,7 @@ const ProjectsCard = ({
           <div className="col-span-2">
             <CarouselContainer
               $height={$height}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              className="grid grid-cols-1 md:grid-cols-1 gap-6"
             >
               <MediaCarousel data={filePaths} />
             </CarouselContainer>

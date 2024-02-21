@@ -216,11 +216,11 @@ const ProjectCard = ({
               {projectTitle}
               {projectGraphic}
             </div>
-            {children}
             <div className="text-justify">
               {githubLink}
               {id === 0 ? gatherTextTsx : projectDescription}
             </div>
+            {children}
           </div>
         </AlignView>
       </SizingView>

@@ -42,6 +42,7 @@ const SwiperSlide = styled(BaseSwiperSlide)`
   .swiper-slide img {
     display: block;
   }
+  padding: 2rem 0;
 `;
 
 type Props = {
