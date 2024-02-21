@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LazyImage from '../../lazy-image';
 import { ga, skeleton } from '../../../utils';
 import { SanitizedExternalProject } from '../../../interfaces/sanitized-config';
+import { FaLink } from 'react-icons/fa6';
 
 type ProjectCardProps = {
   children?: ReactNode;
@@ -13,13 +14,11 @@ type ProjectCardProps = {
 
 const commonViewClasses = `card shadow-lg compact bg-base-100`;
 
-const SkeletonCardView = styled.div.attrs<{ $isSkeleton?: boolean }>({
+const CardView = styled.div.attrs({
   className: commonViewClasses,
 })``;
 
-const ProjectCardAnchorView = styled.a.attrs<{ $isSkeleton?: boolean }>({
-  className: `${commonViewClasses} cursor-pointer`,
-})``;
+const GithubLink = styled.a``;
 
 const SizingView = styled.div.attrs({
   className: 'p-8 h-full w-full',
@@ -129,7 +128,7 @@ const CardSkeleton = () => {
   );
 
   return (
-    <SkeletonCardView>
+    <CardView>
       <SizingView>
         <AlignView>
           <div className="w-full">
@@ -143,7 +142,7 @@ const CardSkeleton = () => {
           </div>
         </AlignView>
       </SizingView>
-    </SkeletonCardView>
+    </CardView>
   );
 };
 
@@ -153,6 +152,22 @@ const ProjectCard = ({
   googleAnalyticId,
   id,
 }: ProjectCardProps) => {
+  const handlePressCard: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+
+    try {
+      if (googleAnalyticId) {
+        ga.event('Click External Project', {
+          post: data.title,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
+    window?.open(data.link, '_blank');
+  };
+
   const projectTitle = (
     <h2 className="font-semibold text-lg tracking-wide text-center opacity-60 mb-2">
       {data.title}
@@ -181,24 +196,19 @@ const ProjectCard = ({
     </div>
   );
 
-  const handlePressCard: MouseEventHandler<HTMLAnchorElement> = (e) => {
-    e.preventDefault();
-
-    try {
-      if (googleAnalyticId) {
-        ga.event('Click External Project', {
-          post: data.title,
-        });
-      }
-    } catch (error) {
-      console.error(error);
-    }
-
-    window?.open(data.link, '_blank');
-  };
+  const githubLink = data?.link && (
+    <GithubLink
+      href={data.link}
+      onClick={handlePressCard}
+      className="flex flex-row"
+    >
+      <FaLink />
+      <span className="pl-2">View the code</span>
+    </GithubLink>
+  );
 
   return (
-    <ProjectCardAnchorView href={data.link} onClick={handlePressCard}>
+    <CardView>
       <SizingView>
         <AlignView>
           <div className="w-full">
@@ -208,12 +218,13 @@ const ProjectCard = ({
             </div>
             {children}
             <div className="text-justify">
+              {githubLink}
               {id === 0 ? gatherTextTsx : projectDescription}
             </div>
           </div>
         </AlignView>
       </SizingView>
-    </ProjectCardAnchorView>
+    </CardView>
   );
 };
 
