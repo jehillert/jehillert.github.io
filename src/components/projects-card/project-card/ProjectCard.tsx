@@ -212,12 +212,14 @@ const ProjectCard = ({
       <SizingView>
         <AlignView>
           <div className="w-full">
-            <div className="text-center w-full">
-              {projectTitle}
+            <div className="text-center w-full flex row justify-around">
               {projectGraphic}
+              <div className="self-center">
+                {projectTitle}
+                {githubLink}
+              </div>
             </div>
             <div className="text-justify">
-              {githubLink}
               {id === 0 ? gatherTextTsx : projectDescription}
             </div>
             {children}
