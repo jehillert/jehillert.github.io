@@ -68,6 +68,7 @@ const MediaCarousel = ({ data }: Props) => {
       }}
       modules={[EffectFade, Navigation, Pagination]}
       className="mySwiper"
+      onActiveIndexChange={(s) => setIsPlaying(s.activeIndex)}
     >
       {data.map((slide) => (
         <SwiperSlide key={slide.id} className="swiper-slide">
