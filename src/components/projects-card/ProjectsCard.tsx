@@ -44,7 +44,7 @@ const ProjectsCard = ({
   const renderSkeleton = () => {
     const array = [];
     for (let index = 0; index < externalProjects.length; index++) {
-      array.push(<CardSkeleton />);
+      array.push(<CardSkeleton key={`card-skeleton-${index}`} />);
     }
 
     return array;
