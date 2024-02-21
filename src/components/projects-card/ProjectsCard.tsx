@@ -1,7 +1,9 @@
 import { Fragment, ReactNode } from 'react';
+import { styled } from 'styled-components';
 import { skeleton } from '../../utils';
 import { SanitizedExternalProject } from '../../interfaces/sanitized-config';
 import { CardSkeleton, ProjectCard } from './project-card/ProjectCard';
+import { useWindowDimensions } from '../../hooks';
 import { MediaCarousel } from '../media-carousel/MediaCarousel';
 import vid_share_text from '../../assets/vid_share_text.mp4';
 import vid_share_image from '../../assets/vid_share_image.mp4';
@@ -13,22 +15,65 @@ import vid_sticky_header_footer from '../../assets/vid_sticky_header_footer.mp4'
 import vid_resizable_bottom_sheet from '../../assets/vid_resizable_bottom_sheet.mp4';
 import vid_adaptive_actions_overlay from '../../assets/vid_adaptive_actions_overlay.mp4';
 import vid_convert_webpage_to_document from '../../assets/vid_convert_webpage_to_document.mp4';
+import { isDesktop } from '../../utils/mediaUtils';
 
 const filePaths = [
-  { alt: 'Customizable Toolbar', src: customizable_toolbar },
-  { alt: 'Adaptive Overlay', src: vid_adaptive_actions_overlay },
-  { alt: 'Action Column', src: vid_actions_column },
   {
+    id: 'customizable-toolbar',
+    alt: 'Customizable Toolbar',
+    src: customizable_toolbar,
+  },
+  {
+    id: 'adaptive-overlay',
+    alt: 'Adaptive Overlay',
+    src: vid_adaptive_actions_overlay,
+  },
+  {
+    id: 'action-column',
+    alt: 'Action Column',
+    src: vid_actions_column,
+  },
+  {
+    id: 'document-conversion-i',
     alt: 'Document Conversion I',
     src: vid_convert_webpage_to_document,
   },
-  { alt: 'Document Navigation', src: vid_document_navigation },
-  { alt: 'Draggable Cardlist', src: vid_draggable_cardlist },
-  { alt: 'Resizable Bottom Sheet', src: vid_resizable_bottom_sheet },
-  { alt: 'Share Image', src: vid_share_image },
-  { alt: 'Share Text', src: vid_share_text },
-  { alt: 'Sticky Header/Footer', src: vid_sticky_header_footer },
+  {
+    id: 'document-navigation',
+    alt: 'Document Navigation',
+    src: vid_document_navigation,
+  },
+  {
+    id: 'draggable-cardlist',
+    alt: 'Draggable Cardlist',
+    src: vid_draggable_cardlist,
+  },
+  {
+    id: 'resizable-bottom-sheet',
+    alt: 'Resizable Bottom Sheet',
+    src: vid_resizable_bottom_sheet,
+  },
+  {
+    id: 'share-image',
+    alt: 'Share Image',
+    src: vid_share_image,
+  },
+  {
+    id: 'share-text',
+    alt: 'Share Text',
+    src: vid_share_text,
+  },
+  {
+    id: 'sticky-header-footer',
+    alt: 'Sticky Header/Footer',
+    src: vid_sticky_header_footer,
+  },
 ];
+
+const CarouselContainer = styled.div<{ $height: number }>`
+  height: ${({ $height }) => $height}px;
+  background-color: red;
+`;
 
 const ProjectsCard = ({
   externalProjects,
@@ -41,6 +86,9 @@ const ProjectsCard = ({
   loading: boolean;
   googleAnalyticId?: string;
 }) => {
+  const { height } = useWindowDimensions();
+  const $height = (isDesktop ? 0.75 : 1) * height;
+
   const renderSkeleton = () => {
     const array = [];
     for (let index = 0; index < externalProjects.length; index++) {
@@ -56,9 +104,12 @@ const ProjectsCard = ({
       if (index === 0) {
         children = (
           <div className="col-span-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <MediaCarousel data={filePaths} loading={loading} />
-            </div>
+            <CarouselContainer
+              $height={$height}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              <MediaCarousel data={filePaths} />
+            </CarouselContainer>
           </div>
         );
       }

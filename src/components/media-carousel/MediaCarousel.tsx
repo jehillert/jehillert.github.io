@@ -1,63 +1,88 @@
-import { Options } from '@splidejs/splide';
-import { Video } from '@splidejs/splide-extension-video';
-// @ts-expect-error - dependency bug
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import { useState } from 'react';
+import BaseReactPlayer from 'react-player';
 import { styled } from 'styled-components';
-import ReactPlayer from 'react-player';
+import { EffectFade, Navigation, Pagination } from 'swiper/modules';
+import {
+  Swiper as BaseSwiper,
+  SwiperSlide as BaseSwiperSlide,
+} from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
-const PlayerContainer = styled.div`
-  display: flex;
-  align-items: center;
+const ReactPlayer = styled(BaseReactPlayer)<{ $height: string }>`
+  video {
+    height: ${({ $height }) => $height};
+  }
+  .react-player__preview {
+  }
+  .react-player__shadow {
+  }
+  .react-player__play-icon {
+  }
 `;
 
-const Player = styled(ReactPlayer)``;
+const PlayerWrapper = styled.div<{ $height: string }>`
+  display: flex;
+  alight-items: center;
+  height: ${({ $height }) => $height};
+  width: 100%;
+`;
+
+const Swiper = styled(BaseSwiper)`
+  width: 100%;
+`;
+
+const SwiperSlide = styled(BaseSwiperSlide)`
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+
+  .swiper-slide img {
+    display: block;
+  }
+`;
 
 type Props = {
   data: {
+    id: string;
     src: string;
     alt: string;
   }[];
-  loading: boolean;
 };
 
-const MediaCarousel = ({ data, loading }: Props) => {
-  const options = {
-    type: 'loop',
-    gap: '1rem',
-    autoplay: true,
-    pauseOnHover: false,
-    resetProgress: false,
-  };
+const MediaCarousel = ({ data }: Props) => {
+  const [isPlaying, setIsPlaying] = useState(0);
+
+  const $height = '100%';
 
   return (
-    <div className="wrapper">
-      <Splide
-        options={options}
-        aria-labelledby="autoplay-example-heading"
-        hasTrack={false}
-      >
-        <div style={{ position: 'relative' }}>
-          <SplideTrack>
-            {data.map((slide) => (
-              <SplideSlide key={slide.src}>
-                <PlayerContainer>
-                  <Player url={slide.src} width="100%" controls={true} />
-                </PlayerContainer>
-              </SplideSlide>
-            ))}
-          </SplideTrack>
-        </div>
-
-        <div className="splide__progress">
-          <div className="splide__progress__bar" />
-        </div>
-
-        <button className="splide__toggle">
-          <span className="splide__toggle__play">Play</span>
-          <span className="splide__toggle__pause">Pause</span>
-        </button>
-      </Splide>
-    </div>
+    <Swiper
+      spaceBetween={30}
+      effect={'fade'}
+      navigation={true}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[EffectFade, Navigation, Pagination]}
+      className="mySwiper"
+    >
+      {data.map((slide) => (
+        <SwiperSlide key={slide.id} className="swiper-slide">
+          <PlayerWrapper $height={$height}>
+            <ReactPlayer
+              $height={$height}
+              url={slide.src}
+              controls={true}
+              playing={isPlaying === 0}
+              height={$height}
+              width="100%"
+            />
+          </PlayerWrapper>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
